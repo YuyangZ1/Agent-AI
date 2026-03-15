@@ -1,38 +1,249 @@
-.App {
-  text-align: center;
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(34, 197, 255, 0.2),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 84% 22%,
+      rgba(99, 102, 241, 0.18),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 50% 88%,
+      rgba(139, 92, 246, 0.18),
+      transparent 24%
+    ),
+    linear-gradient(135deg, #020617 0%, #081224 35%, #0a1730 68%, #030712 100%);
+  color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: transparent !important;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 9999px;
+  filter: blur(100px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb-1 {
+  width: 320px;
+  height: 320px;
+  top: 80px;
+  left: 60px;
+  background: rgba(56, 189, 248, 0.28);
+}
+
+.bg-orb-2 {
+  width: 340px;
+  height: 340px;
+  top: 140px;
+  right: 70px;
+  background: rgba(99, 102, 241, 0.28);
+}
+
+.bg-orb-3 {
+  width: 320px;
+  height: 320px;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(168, 85, 247, 0.24);
+}
+
+.app-header {
+  height: 96px;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  background: rgba(3, 12, 30, 0.42) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.app-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 42px 0 150px;
+}
+
+.main-panel {
+  width: 82%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px;
+  border-radius: 34px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.04)
+  );
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+.main-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 34px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.03)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section-title {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ant-upload-wrapper .ant-upload-drag {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.03)
+  ) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.22) !important;
+  border-radius: 22px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.16);
+  transition: all 0.25s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.ant-upload-wrapper .ant-upload-drag:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.55) !important;
+  box-shadow:
+    0 18px 40px rgba(37, 99, 235, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ant-upload-wrapper .ant-upload-drag .ant-upload-drag-icon .anticon {
+  color: #78a9ff !important;
+}
+
+.ant-upload-wrapper .ant-upload-drag .ant-upload-text {
+  color: rgba(255, 255, 255, 0.94) !important;
+  font-weight: 600;
+}
+
+.ant-upload-wrapper .ant-upload-drag .ant-upload-hint {
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+
+.ant-layout,
+.ant-layout-content,
+.ant-layout-header {
+  background: transparent !important;
+}
+
+.ant-typography {
+  color: #ffffff;
+}
+
+/* 输入框和按钮更有产品感 */
+.ant-input,
+.ant-input-affix-wrapper,
+input {
+  border-radius: 18px !important;
+}
+
+.ant-btn-primary,
+button {
+  border-radius: 18px !important;
+  border: none !important;
+  background: linear-gradient(135deg, #3b82f6, #6366f1) !important;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
+  transition: all 0.2s ease;
+}
+
+.ant-btn-primary:hover,
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(99, 102, 241, 0.42);
+}
+
+/* 滚动条更精致 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.65);
+}
+
+.signature {
+  position: fixed;
+  bottom: 14px;
+  right: 18px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
 }

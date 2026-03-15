@@ -21,3 +21,18 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+server/.env
+
+# environment variables
+.env
+
+# server dependencies
+server/node_modules/
+
+# uploaded user files
+server/uploads/
+
+# pdf test files
+*.pdf

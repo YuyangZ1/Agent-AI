@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# AgentAI – AI Document Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AgentAI is a full-stack AI application that allows users to upload PDF documents and ask questions about their content.  
+The system retrieves relevant document context and uses a large language model to generate answers.
 
-## Available Scripts
+This project demonstrates how to build a modern AI application using a React frontend and a Node.js backend with a retrieval-augmented generation (RAG) workflow.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Upload PDF documents
+- Ask natural language questions about the document
+- AI-generated answers based on document context
+- Retrieval-augmented generation (RAG)
+- Simple chat interface
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+# Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Frontend
+- React
+- JavaScript
+- CSS
 
-### `npm run build`
+## Backend
+- Node.js
+- Express
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## AI / LLM
+- OpenAI API
+- Vector-based document retrieval
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# System Architecture
 
-### `npm run eject`
+The application follows a simple AI retrieval workflow:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. User uploads a PDF document  
+2. Backend processes the document content  
+3. Relevant context is retrieved from the document  
+4. The user submits a question  
+5. The AI model generates an answer based on the retrieved context  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This approach improves answer accuracy by grounding responses in the document content.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Project Structure
 
-## Learn More
+Agent-AI
+│
+├── public
+│
+├── src
+│   ├── components
+│   │   ├── ChatComponent.js
+│   │   ├── PdfUploader.js
+│   │   └── RenderQA.js
+│   │
+│   ├── App.js
+│   ├── App.css
+│   └── index.css
+│
+├── server
+│   ├── server.js
+│   ├── chat.js
+│   └── package.json
+│
+├── package.json
+└── README.md
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Running the Project
 
-### Code Splitting
+## 1. Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Frontend
+npm install
 
-### Analyzing the Bundle Size
+Backend
+cd server
+npm install
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 2. Start the backend server
 
-### Making a Progressive Web App
+node server.js
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 3. Start the frontend application
 
-### Advanced Configuration
+npm start
+The frontend will start on:
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+# Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project requires an API key to access the language model.
 
-### `npm run build` fails to minify
+Create a `.env` file inside the `server` directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+OPENAI_API_KEY=your_api_key_here
+
+Important:
+
+- `.env` files are **not included in this repository**
+- Never commit API keys to version control
+
+---
+
+# Security Notes
+
+To protect sensitive information:
+
+- API keys are stored in environment variables
+- `.env` files are excluded via `.gitignore`
+- No secrets are stored in the codebase
+
+---
+
+# Future Improvements
+
+Potential improvements for the project:
+
+- Support multiple document uploads
+- Improve document chunking and retrieval accuracy
+- Add streaming responses
+- Deploy the application to a cloud platform
+
+---
+
+# Author
+
+Yuyang Zhou

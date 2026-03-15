@@ -9,7 +9,9 @@ This project demonstrates how to build a modern AI application using a React fro
 
 ## Application Interface
 
-![AgentAI Interface](demo.png)
+<p align="center">
+  <img src="assets/demo.png" width="900" alt="AgentAI Interface"/>
+</p>
 
 The web interface allows users to upload PDF documents and interact with the AI assistant through a chat-style interface.  
 Questions are processed by the backend server, which retrieves relevant document context and generates answers using a large language model.

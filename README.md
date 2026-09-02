@@ -1,5 +1,9 @@
 # DocuRAG – Hybrid RAG Document Q&A
 
+<p align="center">
+  <img src="assets/demo.png" width="900" alt="DocuRAG Interface"/>
+</p>
+
 DocuRAG is a full-stack AI application that lets users upload PDF documents and ask natural-language questions about them. It combines retrieval-augmented generation (RAG) over the uploaded document with parallel web search, then fuses the two answers using a confidence-based hybrid ranking strategy.
 
 This project demonstrates a production-style RAG pipeline: cached embeddings, MCP-based tool integration, parallel execution, and explainable answer fusion.

@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios"; // Import axios for HTTP requests
 import { InboxOutlined } from "@ant-design/icons";
 import { message, Upload } from "antd";
+import { getSessionId } from "../utils/session";
 
 const { Dragger } = Upload;
 
@@ -14,6 +15,7 @@ const uploadToBackend = async (file) => {
     const response = await axios.post(`${DOMAIN}/upload`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
+        "X-Session-Id": getSessionId(),
       },
     });
     return response;

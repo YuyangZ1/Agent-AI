@@ -1,3 +1,35 @@
+/* ─────────────────────────────────────────────────────────────────
+   DocuRAG · Tech aesthetic with depth
+   Refs: Linear.app, Cursor, Vercel hero pages, OpenAI
+   Visual: deep black + cyan/violet/magenta nebula + glassmorphism
+   ───────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg-deep: #050208;
+  --bg-base: #0a0612;
+  --bg-elev: rgba(22, 18, 38, 0.55);
+  --bg-card: rgba(255, 255, 255, 0.025);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-mid: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.2);
+
+  --text: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-dim: rgba(255, 255, 255, 0.32);
+
+  --cyan: #22d3ee;
+  --cyan-deep: #0891b2;
+  --violet: #a855f7;
+  --magenta: #e879f9;
+  --lime: #4ade80;
+  --indigo: #818cf8;
+
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 html,
 body,
 #root {
@@ -7,133 +39,289 @@ body,
 }
 
 body {
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  background:
-    radial-gradient(
-      circle at 12% 18%,
-      rgba(34, 197, 255, 0.2),
-      transparent 24%
-    ),
-    radial-gradient(
-      circle at 84% 22%,
-      rgba(99, 102, 241, 0.18),
-      transparent 26%
-    ),
-    radial-gradient(
-      circle at 50% 88%,
-      rgba(139, 92, 246, 0.18),
-      transparent 24%
-    ),
-    linear-gradient(135deg, #020617 0%, #081224 35%, #0a1730 68%, #030712 100%);
-  color: #ffffff;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg-deep);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* ── App shell: layered gradient nebula + subtle grid ────────────── */
 .app-shell {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background: transparent !important;
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 15% 0%,
+      rgba(34, 211, 238, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 70% 60% at 85% 20%,
+      rgba(168, 85, 247, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 50% 95%,
+      rgba(232, 121, 249, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 95% 80%,
+      rgba(129, 140, 248, 0.16),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg-deep) 0%,
+      #08051a 35%,
+      #0a0612 70%,
+      var(--bg-deep) 100%
+    ) !important;
 }
 
-.bg-orb {
+.app-shell::before {
+  content: "";
   position: fixed;
-  border-radius: 9999px;
-  filter: blur(100px);
-  opacity: 0.55;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
   pointer-events: none;
   z-index: 0;
+  mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 30%,
+    black 0%,
+    transparent 70%
+  );
+  opacity: 0.6;
 }
 
-.bg-orb-1 {
-  width: 320px;
-  height: 320px;
-  top: 80px;
-  left: 60px;
-  background: rgba(56, 189, 248, 0.28);
+/* legacy orbs hidden — replaced by background gradients above */
+.bg-orb {
+  display: none;
 }
 
-.bg-orb-2 {
-  width: 340px;
-  height: 340px;
-  top: 140px;
-  right: 70px;
-  background: rgba(99, 102, 241, 0.28);
-}
-
-.bg-orb-3 {
-  width: 320px;
-  height: 320px;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(168, 85, 247, 0.24);
-}
-
-.app-header {
-  height: 96px;
+/* ── Status bar (slim, glassy, sits above hero) ──────────────────── */
+.status-bar {
   display: flex;
   align-items: center;
-  padding: 0 48px;
-  background: rgba(3, 12, 30, 0.42) !important;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 14px 40px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  gap: 14px;
+  padding: 12px 48px;
+  background: rgba(10, 6, 18, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
 }
 
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--lime);
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow:
+    0 0 8px var(--lime),
+    0 0 16px rgba(74, 222, 128, 0.5);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+
+.status-spacer {
+  flex: 1;
+}
+
+.tech-chips {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.tech-chip {
+  padding: 3px 9px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-soft);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.tech-chip:hover {
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.tech-chip.cyan {
+  border-color: rgba(34, 211, 238, 0.45);
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.12);
+}
+
+.tech-chip.violet {
+  border-color: rgba(168, 85, 247, 0.45);
+  color: #c4b5fd;
+  background: rgba(168, 85, 247, 0.08);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.12);
+}
+
+/* ── Hero header ─────────────────────────────────────────────────── */
+.app-header {
+  height: auto !important;
+  padding: 56px 48px 36px !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  position: relative;
+  z-index: 10;
+}
+
+.app-header > div {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.app-header .ant-typography {
+  color: var(--text) !important;
+}
+
+.app-header h1.ant-typography {
+  font-size: 64px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.05 !important;
+  margin: 0 0 14px 0 !important;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #e0e7ff 25%,
+    var(--cyan) 55%,
+    var(--violet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 24px rgba(34, 211, 238, 0.15));
+}
+
+.app-header .ant-typography:nth-child(2) {
+  display: block;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text-muted) !important;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.app-header .ant-typography:nth-child(2)::before {
+  content: "▸ ";
+  color: var(--cyan);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+}
+
+/* faint horizontal accent line below header */
+.app-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 48px;
+  right: 48px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 211, 238, 0.4),
+    rgba(168, 85, 247, 0.4),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* ── Main content + panels ───────────────────────────────────────── */
 .app-content {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 42px 0 150px;
+  padding: 36px 0 200px;
 }
 
 .main-panel {
-  width: 82%;
-  max-width: 1180px;
+  width: 86%;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 36px;
-  border-radius: 34px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.04)
-  );
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 32px;
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(22, 18, 38, 0.6),
+      rgba(10, 6, 18, 0.4)
+    );
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--border-mid);
   box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 40px 100px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(34, 211, 238, 0.04);
   position: relative;
 }
 
+/* gradient border stroke via mask trick (1px conic border) */
 .main-panel::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 34px;
+  border-radius: 20px;
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.03)
+    rgba(34, 211, 238, 0.4),
+    rgba(168, 85, 247, 0.25) 50%,
+    rgba(255, 255, 255, 0.04) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -143,49 +331,85 @@ body {
   pointer-events: none;
 }
 
+/* ── Section labels: "[ DOC · UPLOAD ]" style ────────────────────── */
 .section-title {
-  color: rgba(255, 255, 255, 0.96);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  margin-bottom: 16px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.section-title::before {
+  content: "[";
+  color: var(--cyan);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+.section-title::after {
+  content: "]";
+  color: var(--cyan);
+  font-weight: 700;
+  margin-left: 4px;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+/* ── Upload zone ─────────────────────────────────────────────────── */
 .ant-upload-wrapper .ant-upload-drag {
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.03)
+    180deg,
+    rgba(34, 211, 238, 0.04),
+    rgba(168, 85, 247, 0.03)
   ) !important;
-  border: 1px dashed rgba(255, 255, 255, 0.22) !important;
-  border-radius: 22px !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 8px 24px rgba(0, 0, 0, 0.16);
+  border: 1px dashed var(--border-mid) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
   transition: all 0.25s ease;
+  padding: 8px;
 }
 
 .ant-upload-wrapper .ant-upload-drag:hover {
   transform: translateY(-2px);
-  border-color: rgba(96, 165, 250, 0.55) !important;
+  border-color: var(--cyan) !important;
+  background: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.1),
+    rgba(168, 85, 247, 0.06)
+  ) !important;
   box-shadow:
-    0 18px 40px rgba(37, 99, 235, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    0 0 0 1px rgba(34, 211, 238, 0.3),
+    0 20px 50px rgba(34, 211, 238, 0.15);
 }
 
 .ant-upload-wrapper .ant-upload-drag .ant-upload-drag-icon .anticon {
-  color: #78a9ff !important;
+  color: var(--cyan) !important;
+  font-size: 42px !important;
+  filter: drop-shadow(0 0 16px rgba(34, 211, 238, 0.5));
 }
 
 .ant-upload-wrapper .ant-upload-drag .ant-upload-text {
-  color: rgba(255, 255, 255, 0.94) !important;
-  font-weight: 600;
+  color: var(--text) !important;
+  font-weight: 600 !important;
+  font-family: var(--sans) !important;
+  font-size: 15px !important;
+  letter-spacing: -0.005em;
 }
 
 .ant-upload-wrapper .ant-upload-drag .ant-upload-hint {
-  color: rgba(255, 255, 255, 0.58) !important;
+  color: var(--text-dim) !important;
+  font-family: var(--sans) !important;
+  font-size: 12px !important;
+  letter-spacing: 0;
+  margin-top: 4px;
 }
 
+/* ── AntDesign layout transparency ───────────────────────────────── */
 .ant-layout,
 .ant-layout-content,
 .ant-layout-header {
@@ -193,57 +417,183 @@ body {
 }
 
 .ant-typography {
-  color: #ffffff;
+  color: var(--text);
 }
 
-/* 输入框和按钮更有产品感 */
+/* ── Inputs: glassy with cyan focus glow ─────────────────────────── */
 .ant-input,
 .ant-input-affix-wrapper,
+.ant-input-search .ant-input,
 input {
-  border-radius: 18px !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--border-mid) !important;
+  color: var(--text) !important;
+  font-family: var(--mono) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.01em;
+  caret-color: var(--cyan);
+  backdrop-filter: blur(8px);
+}
+
+.ant-input::placeholder,
+input::placeholder {
+  color: var(--text-dim) !important;
+  font-family: var(--mono);
+}
+
+.ant-input:hover,
+.ant-input-affix-wrapper:hover,
+input:hover {
+  border-color: var(--border-strong) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.ant-input:focus,
+.ant-input-affix-wrapper-focused,
+input:focus {
+  border-color: var(--cyan) !important;
+  background: rgba(34, 211, 238, 0.04) !important;
+  box-shadow:
+    0 0 0 3px rgba(34, 211, 238, 0.15),
+    0 0 24px rgba(34, 211, 238, 0.15) !important;
+}
+
+.ant-input-search .ant-input-group-addon {
+  background: transparent !important;
+}
+
+/* ── Buttons: gradient primary, glassy secondary ─────────────────── */
+.ant-btn,
+button {
+  border-radius: 10px !important;
+  border: 1px solid var(--border-mid) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  font-family: var(--mono) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.ant-btn:hover,
+button:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
 }
 
 .ant-btn-primary,
-button {
-  border-radius: 18px !important;
-  border: none !important;
-  background: linear-gradient(135deg, #3b82f6, #6366f1) !important;
-  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
-  transition: all 0.2s ease;
+button.ant-btn-primary {
+  border: 1px solid transparent !important;
+  background: linear-gradient(
+    135deg,
+    var(--cyan) 0%,
+    var(--cyan-deep) 60%,
+    var(--violet) 130%
+  ) !important;
+  color: #001a1f !important;
+  font-weight: 700 !important;
+  box-shadow:
+    0 8px 24px rgba(34, 211, 238, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
 }
 
 .ant-btn-primary:hover,
-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 36px rgba(99, 102, 241, 0.42);
+button.ant-btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    #67e8f9 0%,
+    var(--cyan) 60%,
+    #c084fc 130%
+  ) !important;
+  box-shadow:
+    0 12px 36px rgba(34, 211, 238, 0.4),
+    0 0 60px rgba(34, 211, 238, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset !important;
 }
 
-/* 滚动条更精致 */
+.ant-btn-dangerous,
+button.ant-btn-dangerous {
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  color: #fb7185 !important;
+  background: rgba(244, 63, 94, 0.08) !important;
+}
+
+/* ── AntDesign Tag overrides ─────────────────────────────────────── */
+.ant-tag {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-mid) !important;
+  color: var(--text-soft) !important;
+  font-family: var(--mono) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 5px !important;
+  padding: 2px 8px !important;
+}
+
+.ant-tag-blue {
+  background: rgba(34, 211, 238, 0.1) !important;
+  border-color: rgba(34, 211, 238, 0.45) !important;
+  color: var(--cyan) !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.12);
+}
+
+.ant-tag-gold {
+  background: rgba(251, 191, 36, 0.1) !important;
+  border-color: rgba(251, 191, 36, 0.45) !important;
+  color: #fcd34d !important;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.1);
+}
+
+.ant-tag-green {
+  background: rgba(74, 222, 128, 0.1) !important;
+  border-color: rgba(74, 222, 128, 0.45) !important;
+  color: var(--lime) !important;
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.1);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 999px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.45);
+  background: var(--border-strong);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.65);
+  background: var(--text-muted);
 }
 
+/* ── Footer signature ────────────────────────────────────────────── */
 .signature {
   position: fixed;
   bottom: 14px;
-  right: 18px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  backdrop-filter: blur(4px);
+  right: 22px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.signature::before {
+  content: "// ";
+  color: var(--cyan);
+  opacity: 0.8;
 }

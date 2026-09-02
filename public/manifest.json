@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DocuRAG",
+  "name": "DocuRAG - Hybrid RAG Document Q&A",
   "icons": [
     {
       "src": "favicon.ico",

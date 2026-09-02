@@ -6,6 +6,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Speech from "speak-tts";
+import { getSessionId } from "../utils/session";
 
 const { Search } = Input;
 
@@ -132,10 +133,14 @@ const ChatComponent = (props) => {
         params: {
           question,
         },
+        headers: {
+          "X-Session-Id": getSessionId(),
+        },
       });
       handleResp(question, response.data);
       if (isChatModeOn) {
-        talk(response.data?.ragAnswer);
+        // Voice mode reads the hybrid-ranked final answer, not a raw candidate.
+        talk(response.data?.finalAnswer || response.data?.ragAnswer);
       }
     } catch (error) {
       console.error(`Error: ${error}`);
@@ -151,26 +156,39 @@ const ChatComponent = (props) => {
   };
 
   return (
-    <div style={searchContainer}>
+    <div style={{ ...searchContainer, alignItems: "center", gap: "8px" }}>
       {!isChatModeOn && (
-        <Search
-          placeholder="input search text"
-          enterButton="Ask"
-          size="large"
-          onSearch={onSearch}
-          loading={isLoading}
-          value={searchValue} // Control the value
-          onChange={handleChange} // Update the value when changed
-        />
+        <>
+          <span
+            style={{
+              color: "#22d3ee",
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "14px",
+              fontWeight: 600,
+              userSelect: "none",
+              marginRight: "-4px",
+            }}
+          >
+            ›
+          </span>
+          <Search
+            placeholder="ask DocuRAG anything…"
+            enterButton="ASK"
+            size="large"
+            onSearch={onSearch}
+            loading={isLoading}
+            value={searchValue}
+            onChange={handleChange}
+          />
+        </>
       )}
       <Button
-        type="primary"
+        type={isChatModeOn ? undefined : "default"}
         size="large"
         danger={isChatModeOn}
         onClick={chatModeClickHandler}
-        style={{ marginLeft: "5px" }}
       >
-        Chat Mode: {isChatModeOn ? "On" : "Off"}
+        {isChatModeOn ? "● VOICE ON" : "VOICE"}
       </Button>
       {isChatModeOn && (
         <Button
@@ -179,9 +197,8 @@ const ChatComponent = (props) => {
           size="large"
           danger={isRecording}
           onClick={recordingClickHandler}
-          style={{ marginLeft: "5px" }}
         >
-          {isRecording ? "Recording..." : "Click to record"}
+          {isRecording ? "● REC" : "TAP TO TALK"}
         </Button>
       )}
     </div>

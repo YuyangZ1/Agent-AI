@@ -1,0 +1,429 @@
+{
+  "summary": {
+    "generatedAt": "2026-09-02T19:46:01.704Z",
+    "document": {
+      "file": "hbs-lean-startup.pdf",
+      "pages": 26,
+      "chars": 90001,
+      "chunkSize": 500,
+      "chunkOverlap": 0,
+      "approxChunks": 181
+    },
+    "embeddingModel": "text-embedding-3-small",
+    "queryCount": 25,
+    "errorCount": 0,
+    "retrieval": {
+      "avgCoverage": 0.614,
+      "strictHitRateAt4": 0.4
+    },
+    "answerCorrectness": {
+      "judgeModel": "gpt-5",
+      "accuracy": 0.88,
+      "correct": 22,
+      "total": 25,
+      "unparseableJudgeResponses": 0
+    },
+    "latencyMs": {
+      "overall": {
+        "mean": 9356.96,
+        "p50": 5515,
+        "p95": 26975.999999999985,
+        "min": 3013,
+        "max": 48418
+      },
+      "coldFirstQuery": 11616,
+      "warmSubsequentQueriesAvg": 9263,
+      "cacheSpeedupFactor": 1.25
+    },
+    "totalWallClockMs": 317293
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "What is a minimum viable product (MVP) according to this note?",
+      "latencyMs": 11616,
+      "embedCacheHitPct": 0,
+      "embedCacheHits": "0/212",
+      "ragConfidence": 0.603,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "It restates that an MVP is the smallest set needed to complete Build-Measure-Learn and test a business model hypothesis.",
+      "generatedAnswer": "A minimum viable product (MVP) is the smallest set of features and/or activities needed to complete a Build-Measure-Learn cycle and test (ideally try to disprove) a specific business model hypothesis. It can even be a “smoke and mirrors” prototype created before building real features. The goal is to reduce batch sizes, speed feedback, and more easily diagnose issues."
+    },
+    {
+      "id": 2,
+      "question": "What is product-market fit?",
+      "latencyMs": 5682,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.545,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "Captures right product for the market, demonstrated early adopter demand, and solid profit potential; added scaling note doesn’t contradict.",
+      "generatedAnswer": "Product-market fit is when a venture has the right product for its market—demonstrated by demand from early adopters and solid profit potential, profitably meeting target customers’ needs. At this point, key business model hypotheses are validated and the startup can begin scaling."
+    },
+    {
+      "id": 3,
+      "question": "What are the three alternative approaches to lean startup mentioned in the note (besides hypothesis-driven entrepreneurship)?",
+      "latencyMs": 27893,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.749,
+      "retrievalCoverage": 0.33,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "Waterfall Planning",
+        "Just Do It"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Lists the same three approaches with equivalent wording.",
+      "generatedAnswer": "- Build-It-And-They-Will-Come\n- Waterfall (plan-and-execute) product development\n- Just-Do-It (opportunistic execution without disciplined hypothesis testing)"
+    },
+    {
+      "id": 4,
+      "question": "What four elements make up a business model according to the note?",
+      "latencyMs": 3904,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.58,
+      "retrievalCoverage": 0.5,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "Go-To-Market Plan",
+        "Technology & Operations Management"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Lists the same four elements with equivalent wording.",
+      "generatedAnswer": "Customer value proposition; technology and operations plan; go-to-market strategy; and cash flow formula."
+    },
+    {
+      "id": 5,
+      "question": "Who coined the term \"lean startup\"?",
+      "latencyMs": 4142,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.656,
+      "retrievalCoverage": 0.5,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "coined the term"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Matches the reference answer.",
+      "generatedAnswer": "Eric Ries."
+    },
+    {
+      "id": 6,
+      "question": "What rental rate did Rent the Runway's PDF-trial MVP achieve?",
+      "latencyMs": 3013,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.544,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "The generated answer matches the 5% rental rate stated in the reference.",
+      "generatedAnswer": "5% rental rate."
+    },
+    {
+      "id": 7,
+      "question": "What feature did IMVU's MVP intentionally leave out to constrain functionality?",
+      "latencyMs": 3088,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.539,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "Matches the reference: walking (ambulation) was omitted and teleporting used instead.",
+      "generatedAnswer": "The ability for avatars to walk from place to place; they used instant teleporting instead."
+    },
+    {
+      "id": 8,
+      "question": "How did Aardvark's \"mechanical Turk\" MVP work?",
+      "latencyMs": 5047,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.477,
+      "retrievalCoverage": 0.67,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "human operators"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "It correctly states that human operators routed users’ SMS questions to people in their social networks, matching the key fact.",
+      "generatedAnswer": "Aardvark tested demand by having human operators, not algorithms, manually route users’ SMS-submitted questions to the best people in their extended social networks. Responses came back via SMS minutes or hours later. The human routing was hidden, so users believed the system was automated."
+    },
+    {
+      "id": 9,
+      "question": "What is the difference between a false positive and a false negative when interpreting MVP test results?",
+      "latencyMs": 7599,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.584,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "It correctly states that false positives confirm an invalid hypothesis and false negatives disconfirm a valid one.",
+      "generatedAnswer": "A false positive is when an MVP test appears to confirm a hypothesis (e.g., high engagement) that isn’t truly valid—often due to unrepresentative enthusiasts.  \nA false negative is when the test seems to disconfirm a valid hypothesis—often caused by a poorly built or executed MVP (e.g., sluggish pages driving abandonment)."
+    },
+    {
+      "id": 10,
+      "question": "What did Facebook do differently between the Beacon and News Feed features, and why?",
+      "latencyMs": 4519,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.486,
+      "retrievalCoverage": 0.67,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "News Feed"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Accurately states that Facebook kept News Feed, dropped Beacon, based on usage data (revealed preferences) over stated preferences.",
+      "generatedAnswer": "Facebook killed Beacon but kept News Feed. They tracked behavior and saw strong engagement with News Feed, while Beacon wasn’t used. Management prioritized revealed preferences (actual usage data) over stated preferences (user protests)."
+    },
+    {
+      "id": 11,
+      "question": "What product was PayPal originally designed for, and what did it pivot to?",
+      "latencyMs": 5515,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.496,
+      "retrievalCoverage": 0.5,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "Palm Pilot"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Matches original Palm Pilot design and pivot to focusing on the website and eBay listings.",
+      "generatedAnswer": "It was originally designed to let Palm Pilot users exchange money electronically. It pivoted to a web-based payments service, focusing on the website and supporting eBay auction listings."
+    },
+    {
+      "id": 12,
+      "question": "What are the three decision options an entrepreneur has after evaluating MVP test results (Step 6)?",
+      "latencyMs": 12881,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.652,
+      "retrievalCoverage": 0.67,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "Perish"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "It matches the three options: persevere, pivot, or perish.",
+      "generatedAnswer": "Persevere, Pivot, or Perish (shut down/stop)."
+    },
+    {
+      "id": 13,
+      "question": "According to the note, how does Eric Ries define a pivot?",
+      "latencyMs": 3133,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.6,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "It exactly matches the reference definition.",
+      "generatedAnswer": "Eric Ries defines a pivot as changing strategy while retaining one’s original vision."
+    },
+    {
+      "id": 14,
+      "question": "What example does the note give of a bad (unfalsifiable) go-to-market hypothesis versus a good (falsifiable) one?",
+      "latencyMs": 23308,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.523,
+      "retrievalCoverage": 0,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "viral coefficient",
+        "word-of-mouth"
+      ],
+      "judgeVerdict": "incorrect",
+      "judgeReason": "The good example should mention a viral coefficient >0.5 over 12 months; the answer gives a different generic metric instead.",
+      "generatedAnswer": "Bad: a vague “we’ll launch and see what happens”/“our product will go viral” go-to-market claim (unfalsifiable).  \nGood: a specific, measurable test like “we will acquire X customers via channel Y at cost ≤Z within T,” which can be decisively confirmed or rejected."
+    },
+    {
+      "id": 15,
+      "question": "What is a cohort in the context of cohort analysis?",
+      "latencyMs": 3299,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.42,
+      "retrievalCoverage": 0.5,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "cohort analysis"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Matches the definition: customers acquired in a specific time period via the same marketing method; extra details are consistent.",
+      "generatedAnswer": "A cohort is a set of customers acquired during a specific time period, typically through the same marketing channel. They’re analyzed together to track trends in metrics like retention, LTV/CAC, and funnel performance across successive cohorts."
+    },
+    {
+      "id": 16,
+      "question": "What three situations does the note describe where lean startup methods yield fewer advantages?",
+      "latencyMs": 48418,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.59,
+      "retrievalCoverage": 0,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "mistakes must be limited",
+        "demand uncertainty is low"
+      ],
+      "judgeVerdict": "incorrect",
+      "judgeReason": "It misses the “when mistakes must be limited” case and instead adds an unrelated complements/network effects scenario.",
+      "generatedAnswer": "- When technical risk dominates and market needs are well understood (e.g., deep tech/biopharma), so customer discovery adds little.\n- When tests are slow or costly due to long development cycles, regulation, or lengthy enterprise sales, limiting rapid iteration.\n- When value depends on complements/network effects (platforms/marketplaces), requiring a “whole product” before valid customer feedback is possible."
+    },
+    {
+      "id": 17,
+      "question": "Why can't the \"launch early and often\" approach be used for an unmanned interplanetary mission?",
+      "latencyMs": 8375,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.469,
+      "retrievalCoverage": 0.5,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "no way to correct"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "States that hardware can’t be fixed after launch and thus requires upfront contingency planning.",
+      "generatedAnswer": "Because once an unmanned interplanetary mission is launched, there’s no way to correct hardware design mistakes. With no post-launch fix possible and zero tolerance for failure, it requires thorough upfront and contingency planning rather than iterative “launch early and often” cycles."
+    },
+    {
+      "id": 18,
+      "question": "What smoke test did Dropbox use to validate demand before having a fully working, debugged product?",
+      "latencyMs": 4445,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.593,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "It correctly identifies an online video demo of the product’s features as the smoke test.",
+      "generatedAnswer": "Dropbox made a short online video demo showing the product’s proposed features using a not-fully-debugged prototype, then asked viewers to sign up for the beta.  \nThey measured sign-ups to validate demand before building the full product."
+    },
+    {
+      "id": 19,
+      "question": "What is \"escalation of commitment,\" and what cognitive biases contribute to it?",
+      "latencyMs": 6669,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.504,
+      "retrievalCoverage": 0.5,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "escalation of commitment"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Matches the definition and lists the same contributing biases as the reference.",
+      "generatedAnswer": "Escalation of commitment is the tendency to ignore disconfirming evidence and keep (or increase) investing in a course of action, especially when large ongoing investments precede clear outcomes. It is fueled by optimism bias, the planning fallacy, confirmation bias, and the sunk cost fallacy. These biases make people overestimate success, underestimate time/costs, seek confirming data, and feel compelled to justify prior investments."
+    },
+    {
+      "id": 20,
+      "question": "What two ways can an MVP be \"minimal,\" according to the note?",
+      "latencyMs": 5147,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.507,
+      "retrievalCoverage": 0,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "constrain product functionality",
+        "constrained operational capability"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "Identifies both constraints: product functionality and operational capability.",
+      "generatedAnswer": "By constraining product functionality (only a core subset of features) and by constraining operational capability (using temporary or makeshift technology/processes to deliver the functionality)."
+    },
+    {
+      "id": 21,
+      "question": "What are the six stages of waterfall (\"stage-gate\") planning listed in the note?",
+      "latencyMs": 14066,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.54,
+      "retrievalCoverage": 0,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "Concept exploration",
+        "Alpha launch"
+      ],
+      "judgeVerdict": "incorrect",
+      "judgeReason": "It omits product design and internal testing and replaces alpha launch with beta test and full launch.",
+      "generatedAnswer": "Concept exploration (business plan), Product specification (PRD), Product development/engineering, Alpha test, Beta test, and Launch (first customer ship)."
+    },
+    {
+      "id": 22,
+      "question": "What was SnapTax's approach to constraining its MVP, and which company made it?",
+      "latencyMs": 4819,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.467,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "Matches that Intuit limited SnapTax to California residents with simple 1040EZ returns, excluding other states and complex filings.",
+      "generatedAnswer": "SnapTax, made by Intuit, constrained its MVP by limiting it to California residents filing simple one-page 1040EZ returns, excluding other states and complex filings."
+    },
+    {
+      "id": 23,
+      "question": "What two concerns do entrepreneurs often express about launching MVPs early?",
+      "latencyMs": 4377,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.663,
+      "retrievalCoverage": 0,
+      "retrievalStrictHit": 0,
+      "missingKeywords": [
+        "Exposure to Idea Theft",
+        "Reputational Risk"
+      ],
+      "judgeVerdict": "correct",
+      "judgeReason": "It accurately lists idea theft and reputational risk from a limited or buggy MVP.",
+      "generatedAnswer": "- Exposure to idea theft (competitors stealing their concept).\n- Reputational risk from releasing a limited or buggy MVP."
+    },
+    {
+      "id": 24,
+      "question": "What tradeoff is involved in parallel testing of business model hypotheses?",
+      "latencyMs": 7195,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.605,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "It captures the tradeoff between faster time-to-market and the risk of wasted effort if one hypothesis invalidates the other.",
+      "generatedAnswer": "Parallel testing can speed time-to-market and help counter competitive preemption, especially in winner-take-all markets. The tradeoff is a higher risk of wasted effort and resources if one hypothesis fails or turns out to be serially dependent on another."
+    },
+    {
+      "id": 25,
+      "question": "According to the note's conclusion, what two new concepts does the lean startup approach introduce beyond its intellectual antecedents?",
+      "latencyMs": 5774,
+      "embedCacheHitPct": 100,
+      "embedCacheHits": "212/212",
+      "ragConfidence": 0.654,
+      "retrievalCoverage": 1,
+      "retrievalStrictHit": 1,
+      "missingKeywords": [],
+      "judgeVerdict": "correct",
+      "judgeReason": "It correctly identifies minimum viable products and pivots with their purposes.",
+      "generatedAnswer": "Minimum viable products (to efficiently test business model hypotheses) and pivots (to change business model elements in response to failed hypothesis tests)."
+    }
+  ]
+}

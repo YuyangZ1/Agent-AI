@@ -1,0 +1,71 @@
+Flushing Redis embedding cache for model=text-embedding-3-small to force a real cold start...
+Flushed 0 cached embedding key(s).
+
+[Redis] connected
+[1/25] 11616ms | cache 0% | retrieval 100% | judge: correct | What is a minimum viable product (MVP) according to this not
+[2/25] 5682ms | cache 100% | retrieval 100% | judge: correct | What is product-market fit?
+[3/25] 27893ms | cache 100% | retrieval 33% | judge: correct | What are the three alternative approaches to lean startup me
+[4/25] 3904ms | cache 100% | retrieval 50% | judge: correct | What four elements make up a business model according to the
+[5/25] 4142ms | cache 100% | retrieval 50% | judge: correct | Who coined the term "lean startup"?
+[6/25] 3013ms | cache 100% | retrieval 100% | judge: correct | What rental rate did Rent the Runway's PDF-trial MVP achieve
+[7/25] 3088ms | cache 100% | retrieval 100% | judge: correct | What feature did IMVU's MVP intentionally leave out to const
+[8/25] 5047ms | cache 100% | retrieval 67% | judge: correct | How did Aardvark's "mechanical Turk" MVP work?
+[9/25] 7599ms | cache 100% | retrieval 100% | judge: correct | What is the difference between a false positive and a false 
+[10/25] 4519ms | cache 100% | retrieval 67% | judge: correct | What did Facebook do differently between the Beacon and News
+[11/25] 5515ms | cache 100% | retrieval 50% | judge: correct | What product was PayPal originally designed for, and what di
+[12/25] 12881ms | cache 100% | retrieval 67% | judge: correct | What are the three decision options an entrepreneur has afte
+[13/25] 3133ms | cache 100% | retrieval 100% | judge: correct | According to the note, how does Eric Ries define a pivot?
+[14/25] 23308ms | cache 100% | retrieval 0% | judge: incorrect | What example does the note give of a bad (unfalsifiable) go-
+[15/25] 3299ms | cache 100% | retrieval 50% | judge: correct | What is a cohort in the context of cohort analysis?
+[16/25] 48418ms | cache 100% | retrieval 0% | judge: incorrect | What three situations does the note describe where lean star
+[17/25] 8375ms | cache 100% | retrieval 50% | judge: correct | Why can't the "launch early and often" approach be used for 
+[18/25] 4445ms | cache 100% | retrieval 100% | judge: correct | What smoke test did Dropbox use to validate demand before ha
+[19/25] 6669ms | cache 100% | retrieval 50% | judge: correct | What is "escalation of commitment," and what cognitive biase
+[20/25] 5147ms | cache 100% | retrieval 0% | judge: correct | What two ways can an MVP be "minimal," according to the note
+[21/25] 14066ms | cache 100% | retrieval 0% | judge: incorrect | What are the six stages of waterfall ("stage-gate") planning
+[22/25] 4819ms | cache 100% | retrieval 100% | judge: correct | What was SnapTax's approach to constraining its MVP, and whi
+[23/25] 4377ms | cache 100% | retrieval 0% | judge: correct | What two concerns do entrepreneurs often express about launc
+[24/25] 7195ms | cache 100% | retrieval 100% | judge: correct | What tradeoff is involved in parallel testing of business mo
+[25/25] 5774ms | cache 100% | retrieval 100% | judge: correct | According to the note's conclusion, what two new concepts do
+
+=== SUMMARY ===
+{
+  "generatedAt": "2026-09-02T19:46:01.704Z",
+  "document": {
+    "file": "hbs-lean-startup.pdf",
+    "pages": 26,
+    "chars": 90001,
+    "chunkSize": 500,
+    "chunkOverlap": 0,
+    "approxChunks": 181
+  },
+  "embeddingModel": "text-embedding-3-small",
+  "queryCount": 25,
+  "errorCount": 0,
+  "retrieval": {
+    "avgCoverage": 0.614,
+    "strictHitRateAt4": 0.4
+  },
+  "answerCorrectness": {
+    "judgeModel": "gpt-5",
+    "accuracy": 0.88,
+    "correct": 22,
+    "total": 25,
+    "unparseableJudgeResponses": 0
+  },
+  "latencyMs": {
+    "overall": {
+      "mean": 9356.96,
+      "p50": 5515,
+      "p95": 26975.999999999985,
+      "min": 3013,
+      "max": 48418
+    },
+    "coldFirstQuery": 11616,
+    "warmSubsequentQueriesAvg": 9263,
+    "cacheSpeedupFactor": 1.25
+  },
+  "totalWallClockMs": 317293
+}
+
+Full per-query results written to server/eval/results.json
